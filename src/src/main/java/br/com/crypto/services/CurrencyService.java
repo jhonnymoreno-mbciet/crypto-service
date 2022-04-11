@@ -1,0 +1,53 @@
+package br.com.crypto.services;
+
+import br.com.crypto.models.CurrencyModel;
+import br.com.crypto.repositories.CurrencyRepository;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@Service
+public class CurrencyService {
+
+    final CurrencyRepository currencyRepository;
+
+    public CurrencyService(CurrencyRepository currencyRepository){
+        this.currencyRepository = currencyRepository;
+    }
+
+    @Transactional
+    public CurrencyModel save(CurrencyModel currencyModel) {
+        return currencyRepository.save(currencyModel);
+    }
+
+    public List<CurrencyModel> findAll() {
+        return currencyRepository.findAll();
+    }
+
+    public Optional<CurrencyModel> findById(UUID id) {
+        return currencyRepository.findById(id);
+    }
+
+    @Transactional
+    public void delete(CurrencyModel currencyModel) {
+        currencyRepository.delete(currencyModel);
+    }
+
+    public List<CurrencyModel> existsByNameOrCode(Optional<String> name, Optional<String> code){
+        if(name.isPresent() || code.isPresent()){
+            return currencyRepository.existsByNameOrCode(name, code);
+        }
+            return currencyRepository.findAll();
+    }
+
+    public boolean existsByNameAndCode(String name, String code){
+        return currencyRepository.existsByNameAndCode(name, code);
+    }
+
+    public CurrencyModel findByNameOrCode(Optional<String> name, Optional<String> code){
+        return currencyRepository.findByNameOrCode(name, code);
+    }
+}
