@@ -1,12 +1,7 @@
 package br.com.crypto.dtos;
 
-import br.com.crypto.models.CurrencyModel;
-import org.springframework.beans.BeanUtils;
-
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class CurrencyDTO {

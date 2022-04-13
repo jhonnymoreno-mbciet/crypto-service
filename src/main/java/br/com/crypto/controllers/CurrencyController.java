@@ -3,24 +3,20 @@ package br.com.crypto.controllers;
 import br.com.crypto.dtos.CurrencyDTO;
 import br.com.crypto.mapper.CurrencyMapper;
 import br.com.crypto.models.CurrencyModel;
-import br.com.crypto.repositories.CurrencyRepository;
 import br.com.crypto.services.CurrencyService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/crypto-ativo")
 public class CurrencyController {
     final CurrencyService currencyService;
