@@ -23,10 +23,6 @@ public class CurrencyService {
         return currencyRepository.save(currencyModel);
     }
 
-    public List<CurrencyModel> findAll() {
-        return currencyRepository.findAll();
-    }
-
     public Optional<CurrencyModel> findById(UUID id) {
         return currencyRepository.findById(id);
     }
@@ -47,7 +43,4 @@ public class CurrencyService {
         return currencyRepository.existsByNameAndCode(name, code);
     }
 
-    public CurrencyModel findByNameOrCode(Optional<String> name, Optional<String> code){
-        return currencyRepository.findByNameOrCode(name, code);
-    }
 }
