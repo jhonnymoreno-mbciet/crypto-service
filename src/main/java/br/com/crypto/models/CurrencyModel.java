@@ -1,5 +1,7 @@
 package br.com.crypto.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -15,7 +17,8 @@ public class CurrencyModel implements Serializable {
     private UUID id;
     private String name;
     private String code;
-    private LocalDateTime createdat;
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
     public UUID getId() {
         return id;
@@ -41,11 +44,11 @@ public class CurrencyModel implements Serializable {
         this.code = code;
     }
 
-    public LocalDateTime getCreatedat() {
-        return createdat;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedat(LocalDateTime createdat) {
-        this.createdat = createdat;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

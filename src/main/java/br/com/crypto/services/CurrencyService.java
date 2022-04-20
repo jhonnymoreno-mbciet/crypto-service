@@ -28,8 +28,7 @@ public class CurrencyService {
     }
 
     @Transactional
-    public void delete(CurrencyModel currencyModel) {
-        currencyRepository.delete(currencyModel);
+    public void delete(UUID id) {currencyRepository.deleteById(id);
     }
 
     public List<CurrencyModel> existsByNameOrCode(Optional<String> name, Optional<String> code){
@@ -37,10 +36,6 @@ public class CurrencyService {
             return currencyRepository.existsByNameOrCode(name, code);
         }
             return currencyRepository.findAll();
-    }
-
-    public boolean existsByNameAndCode(String name, String code){
-        return currencyRepository.existsByNameAndCode(name, code);
     }
 
 }
