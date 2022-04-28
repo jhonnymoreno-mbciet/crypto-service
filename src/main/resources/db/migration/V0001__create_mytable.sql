@@ -1,5 +1,6 @@
-create table if not exists mytable (
-    id serial primary key,
-    columnOne varchar,
-    columnTwo numeric
+create table if not exists currency (
+    id UUID primary key,
+    name varchar,
+    code varchar,
+    createdAt timeStamp
 );
